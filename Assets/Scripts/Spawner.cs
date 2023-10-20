@@ -11,7 +11,8 @@ public class Spawner : MonoBehaviour
 {
     public GameObject sphere_prefab;
 
-    public int number_of_spheres = 10;
+    public int number_of_spheres_min = 5;
+    public int number_of_spheres_max = 10;
     public Rect boundaries = new Rect(0,0,9,9);
     public bool draw_Gizmos;
    
@@ -20,7 +21,8 @@ public class Spawner : MonoBehaviour
 
     private void SpawnSpheres()
     {
-        for (int i = 0; i < number_of_spheres; i++)
+        int rand = Random.Range(number_of_spheres_min, number_of_spheres_max);
+        for (int i = 0; i < rand; i++)
         {
             GameObject sphere = Instantiate(sphere_prefab, new Vector3(Random.Range(boundaries.xMin, boundaries.xMax), 0.3f, Random.Range(boundaries.yMin, boundaries.yMax)),
                 Quaternion.identity);
@@ -81,7 +83,7 @@ public class Spawner : MonoBehaviour
 
     private void FindClosest()
     {
-        KDTree tree = new KDTree(number_of_spheres, Allocator.TempJob);
+        KDTree tree = new KDTree(number_of_spheres_max, Allocator.TempJob);
         for (int i = 0; i < spheres.Count; i++)
         {
             tree.AddEntry(i, spheres[i].sphere.transform.position);

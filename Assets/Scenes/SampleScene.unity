@@ -429,7 +429,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sphere_prefab: {fileID: 5688408102330470352, guid: e3784804a9313854cbe37cacf530d456, type: 3}
-  number_of_spheres: 10
+  number_of_spheres_min: 5
+  number_of_spheres_max: 10
   boundaries:
     serializedVersion: 2
     x: 0

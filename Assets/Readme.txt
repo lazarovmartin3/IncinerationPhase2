@@ -1,4 +1,4 @@
-Please use the sampe scene.
+Please use the sample scene.
 When the scene is loaded and run, click left mouse button to spawn the spheres. 
 They will start in a random velocity and direction.
 
